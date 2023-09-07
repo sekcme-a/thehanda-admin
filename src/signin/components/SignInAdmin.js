@@ -104,7 +104,7 @@ const SignIn = () => {
     setIsDataInfo(false)
   }
 
-  const onSignInClick = () => {
+  const   onSignInClick = () => {
     if (values.email===undefined || values.email==="") {
       setError("이메일 주소를 입력해주세요.")
       return;
@@ -128,10 +128,11 @@ const SignIn = () => {
 		if (email && password) {
 			try{
         const userCred = await auth.createUserWithEmailAndPassword(email,password)
-        setUser(user??null)
+        setUser(userCred.user??null)
         // if(user)
+        console.log(userCred.user)
         if(userCred.user)
-          router.push("/hallway")
+          router.push("/hallway") 
       } catch(e){
         console.log(e.message)
         if (e.message==="The email address is badly formatted.") {

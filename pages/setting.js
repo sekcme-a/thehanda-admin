@@ -1,6 +1,7 @@
 import { TextField, Button } from "@mui/material"
 import { useState, useEffect } from "react"
 import { firestore as db } from "firebase/firebase"
+import { useRouter } from "next/router";
 
 function joinWithDoubleSlash(arr) {
     if (!Array.isArray(arr)) {
@@ -11,6 +12,7 @@ function joinWithDoubleSlash(arr) {
   
 
 const Newteam = () => {
+    const router = useRouter()
     const [values, setValues] = useState({
         id: "",
         name: "",
